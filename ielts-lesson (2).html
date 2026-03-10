@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Band 7 – Writing Task 2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f172a; color: #e2e8f0; font-family: Georgia, serif; min-height: 100vh; }
+  .screen { display: none; padding: 24px 16px 40px; max-width: 500px; margin: 0 auto; }
+  .screen.active { display: block; }
+
+  h1 { font-size: 26px; color: #f1f5f9; margin-bottom: 6px; }
+  .subtitle { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+  .badge { font-size: 11px; letter-spacing: 3px; color: #6366f1; text-transform: uppercase; margin-bottom: 8px; }
+
+  .progress-bar { background: rgba(255,255,255,0.1); border-radius: 10px; height: 6px; margin-bottom: 24px; }
+  .progress-fill { height: 100%; border-radius: 10px; transition: width 0.4s ease; }
+
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+  .card-label { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .card p { color: #cbd5e1; font-size: 14px; line-height: 1.75; }
+
+  .lesson-btn { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; text-align: left; margin-bottom: 12px; color: #f1f5f9; font-family: Georgia, serif; }
+  .lesson-btn.done { border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.05); }
+  .lesson-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .lesson-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .lesson-meta { font-size: 12px; color: #64748b; }
+  .chevron { color: #334155; font-size: 20px; margin-left: auto; }
+
+  .progress-summary { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 14px; padding: 14px 16px; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+  .progress-num { font-size: 28px; font-weight: 700; color: #6366f1; }
+  .progress-num span { font-size: 16px; color: #475569; }
+  .progress-text { font-size: 14px; font-weight: 600; color: #e2e8f0; }
+  .progress-sub { font-size: 12px; color: #64748b; }
+
+  .btn { width: 100%; border: none; border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: Georgia, serif; margin-top: 8px; }
+  .btn-back { background: none; color: #64748b; font-size: 14px; cursor: pointer; border: none; font-family: Georgia, serif; margin-bottom: 16px; padding: 0; text-align: left; }
+
+  .item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 13px 15px; color: #cbd5e1; font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+
+  .step-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 14px; }
+
+  .quiz-option { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; color: #cbd5e1; font-size: 14px; text-align: left; cursor: pointer; font-family: Georgia, serif; margin-bottom: 10px; line-height: 1.5; }
+  .quiz-option.correct { background: rgba(74,222,128,0.1); border-color: #4ade80; color: #4ade80; }
+  .quiz-option.wrong { background: rgba(248,113,113,0.1); border-color: #f87171; color: #f87171; }
+
+  .explanation { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 12px; padding: 14px; margin-bottom: 16px; }
+  .explanation-label { font-size: 12px; color: #818cf8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .explanation p { color: #cbd5e1; font-size: 14px; line-height: 1.6; }
+
+  .vocab-row { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+  .vocab-weak { color: #f87171; font-size: 13px; flex: 1; text-decoration: line-through; }
+  .vocab-arrow { color: #64748b; }
+  .vocab-strong { color: #4ade80; font-size: 13px; flex: 2; font-weight: 600; }
+
+  .structure-row { display: flex; gap: 0; margin-bottom: 4px; align-items: flex-start; }
+  .structure-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; flex-shrink: 0; margin-right: 12px; margin-top: 2px; }
+  .structure-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px; flex: 1; margin-bottom: 6px; }
+  .structure-title { font-weight: 700; color: #f1f5f9; font-size: 14px; margin-bottom: 3px; }
+  .structure-desc { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+
+  .complete-banner { background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); border-radius: 14px; padding: 20px; text-align: center; margin-bottom: 20px; }
+  .complete-banner h2 { color: #4ade80; font-size: 20px; margin-bottom: 6px; }
+  .complete-banner p { color: #94a3b8; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+<div id="home" class="screen active">
+  <div class="badge">IELTS Band 7</div>
+  <h1>Writing Task 2</h1>
+  <p class="subtitle">Tap a lesson below to begin. Complete all 5 to master the essay.</p>
+
+  <div class="progress-summary">
+    <div class="progress-num"><span id="done-count">0</span><span>/5</span></div>
+    <div>
+      <div class="progress-text">Lessons Completed</div>
+      <div class="progress-sub" id="remaining-text">5 remaining</div>
+    </div>
+  </div>
+
+  <div id="lesson-list"></div>
+</div>
+
+<!-- LESSON SCREEN -->
+<div id="lesson-screen" class="screen">
+  <button class="btn-back" onclick="goHome()">← Back to lessons</button>
+  <div class="badge" id="lesson-badge"></div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+    <span id="lesson-emoji" style="font-size:22px;"></span>
+    <h1 id="lesson-title" style="font-size:20px;"></h1>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="step-progress"></div></div>
+  <div id="step-content"></div>
+</div>
+
+<script>
+const lessons = [
+  {
+    id: 0, emoji: "📖", title: "Understanding the Task", color: "#6366f1",
+    steps: [
+      { type: "info", heading: "What is IELTS Writing Task 2?", body: "You must write an essay of at least 250 words in 40 minutes. It is worth two-thirds of your Writing score. Examiners score you on four criteria, each equally weighted." },
+      { type: "list", heading: "The 4 Scoring Criteria", items: ["✅ Task Achievement — Did you fully answer the question?","✅ Coherence & Cohesion — Is your essay well-organised?","✅ Lexical Resource — Did you use a wide range of vocabulary?","✅ Grammatical Range & Accuracy — Did you use complex grammar correctly?"] },
+      { type: "quiz", question: "How long should your Task 2 essay be?", options: ["At least 150 words","At least 250 words","At least 350 words","Exactly 300 words"], answer: 1, explanation: "Task 2 requires at least 250 words. Going under loses marks. Aim for 270–320 words." }
+    ]
+  },
+  {
+    id: 1, emoji: "🏗️", title: "Essay Structure", color: "#0891b2",
+    steps: [
+      { type: "info", heading: "The Band 7 Structure", body: "A clear 4-paragraph structure is essential for Band 7. Every paragraph has a specific job to do." },
+      { type: "structure", heading: "4-Paragraph Formula", paragraphs: [{ label: "Introduction", desc: "Paraphrase the topic + state your position (2–3 sentences)" },{ label: "Body 1", desc: "Main argument with example or evidence (4–5 sentences)" },{ label: "Body 2", desc: "Second argument or counter-argument (4–5 sentences)" },{ label: "Conclusion", desc: "Summarise your position — no new ideas (2 sentences)" }] },
+      { type: "quiz", question: "What should you do in the conclusion?", options: ["Add a new idea to finish strongly","Summarise your position only","Copy your introduction","Ask a question"], answer: 1, explanation: "The conclusion should restate your position and summarise main points. Never introduce new ideas." }
+    ]
+  },
+  {
+    id: 2, emoji: "✍️", title: "Writing the Introduction", color: "#059669",
+    steps: [
+      { type: "info", heading: "Two Sentences, Two Jobs", body: "A Band 7 introduction does exactly two things: (1) paraphrases the question in your own words, and (2) states your position clearly." },
+      { type: "compare", heading: "Band 5 vs Band 7 Introduction", bad: { label: "Band 5 ❌", text: "Today I will discuss whether universities should teach academic subjects or prepare students for work. I think both are important." }, good: { label: "Band 7 ✅", text: "There is ongoing debate about whether higher education institutions should prioritise theoretical learning or equip graduates with practical workplace skills. While both perspectives have merit, I believe a balance of the two is essential for modern graduates." } },
+      { type: "quiz", question: "What is wrong with copying the question word-for-word in your introduction?", options: ["Nothing — it saves time","It shows you can't paraphrase — hurts Lexical Resource score","Examiners prefer it","It only matters in Task 1"], answer: 1, explanation: "Copying the question directly signals limited vocabulary. Always paraphrase using synonyms and different sentence structures." }
+    ]
+  },
+  {
+    id: 3, emoji: "💡", title: "Vocabulary for Band 7", color: "#d97706",
+    steps: [
+      { type: "info", heading: "Lexical Resource at Band 7", body: "Band 7 requires a sufficient range of vocabulary to allow flexibility and precision, with only occasional errors. Avoid repetition. Use academic synonyms." },
+      { type: "vocab", heading: "Upgrade Your Words", pairs: [{ weak: "many people", strong: "a significant proportion of the population" },{ weak: "good", strong: "beneficial / advantageous / effective" },{ weak: "bad", strong: "detrimental / harmful / counterproductive" },{ weak: "shows", strong: "demonstrates / illustrates / highlights" },{ weak: "because", strong: "due to / as a result of / owing to" },{ weak: "I think", strong: "I would argue / It is my contention that" }] },
+      { type: "quiz", question: "Which sentence uses more academic vocabulary?", options: ["Many people think social media is bad for young people.","A considerable number of researchers argue that social media has a detrimental impact on adolescents."], answer: 1, explanation: "Option B uses 'considerable', 'detrimental', 'adolescents' — precise academic words that boost your Lexical Resource score." }
+    ]
+  },
+  {
+    id: 4, emoji: "🔗", title: "Linking & Cohesion", color: "#7c3aed",
+    steps: [
+      { type: "info", heading: "Why Cohesion Matters", body: "Cohesion is about how smoothly your essay flows. Band 7 requires a range of cohesive devices used appropriately. Overusing 'furthermore' and 'moreover' is a very common mistake." },
+      { type: "list", heading: "Linking Phrases by Function", items: ["➕ Adding: Furthermore, In addition, Moreover, Not only this but...","⚖️ Contrasting: However, On the other hand, Despite this, Nevertheless","🎯 Examples: For instance, To illustrate, A case in point is...","📌 Concluding: In conclusion, To summarise, Ultimately, On balance..."] },
+      { type: "quiz", question: "Which sentence uses a linking phrase correctly?", options: ["Furthermore, the problem. However, there are solutions.","Many people support this view. However, critics argue that the costs outweigh the benefits."], answer: 1, explanation: "Linking phrases must connect complete ideas. Option B correctly uses 'However' to contrast two full thoughts." }
+    ]
+  }
+];
+
+let currentLesson = null;
+let currentStep = 0;
+let completed = [];
+
+function updateHome() {
+  document.getElementById("done-count").textContent = completed.length;
+  document.getElementById("remaining-text").textContent = completed.length === 5 ? "🎉 All done! You're ready to write." : `${5 - completed.length} remaining`;
+  const list = document.getElementById("lesson-list");
+  list.innerHTML = "";
+  lessons.forEach(l => {
+    const done = completed.includes(l.id);
+    const btn = document.createElement("button");
+    btn.className = "lesson-btn" + (done ? " done" : "");
+    btn.onclick = () => startLesson(l.id);
+    btn.innerHTML = `
+      <div class="lesson-icon" style="background:${done ? "rgba(74,222,128,0.15)" : l.color+"22"};border:1px solid ${done ? "rgba(74,222,128,0.3)" : l.color+"44"}">${done ? "✓" : l.emoji}</div>
+      <div>
+        <div class="lesson-title">${l.title}</div>
+        <div class="lesson-meta">${l.steps.length} steps · ${done ? "Completed ✓" : "Tap to start"}</div>
+      </div>
+      <div class="chevron">›</div>`;
+    list.appendChild(btn);
+  });
+}
+
+function startLesson(id) {
+  currentLesson = lessons[id];
+  currentStep = 0;
+  document.getElementById("lesson-badge").textContent = `Lesson ${id + 1} of 5`;
+  document.getElementById("lesson-emoji").textContent = currentLesson.emoji;
+  document.getElementById("lesson-title").textContent = currentLesson.title;
+  showStep();
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("lesson-screen").classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function goHome() {
+  document.getElementById("lesson-screen").classList.remove("active");
+  document.getElementById("home").classList.add("active");
+  window.scrollTo(0,0);
+  updateHome();
+}
+
+function showStep() {
+  const step = currentLesson.steps[currentStep];
+  const total = currentLesson.steps.length;
+  const pct = ((currentStep + 1) / total) * 100;
+  document.getElementById("step-progress").style.width = pct + "%";
+  document.getElementById("step-progress").style.background = currentLesson.color;
+  const isLast = currentStep === total - 1;
+  const nextLabel = isLast ? "Complete Lesson ✓" : "Continue →";
+  const color = currentLesson.color;
+  let html = "";
+
+  if (step.type === "info") {
+    html = `<div class="card"><div class="card-label" style="color:${color}">${step.heading}</div><p>${step.body}</p></div>
+    <button class="btn" style="background:${color};color:white" onclick="nextStep()">${nextLabel}</button>`;
+  } else if (step.type === "list") {
+    html = `<div class="step-label" style="color:${color}">${step.heading}</div>` +
+      step.items.map(i => `<div class="item">${i}</div>`).join("") +
+      `<button class="btn" style="background:${color};color:white" onclick="nextStep()">${nextLabel}</button>`;
+  } else if (step.type === "structure") {
+    html = `<div class="step-label" style="color:${color}">${step.heading}</div>` +
+      step.paragraphs.map((p,i) => `
+        <div class="structure-row">
+          <div class="structure-dot" style="background:${color}">${i+1}</div>
+          <div class="structure-card"><div class="structure-title">${p.label}</div><div class="structure-desc">${p.desc}</div></div>
+        </div>`).join("") +
+      `<button class="btn" style="background:${color};color:white;margin-top:12px" onclick="nextStep()">${nextLabel}</button>`;
+  } else if (step.type === "compare") {
+    html = `<div class="step-label" style="color:${color}">${step.heading}</div>
+    <div style="background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.25);border-radius:12px;padding:14px;margin-bottom:12px">
+      <div style="color:#f87171;font-size:12px;font-weight:700;margin-bottom:8px">${step.bad.label}</div>
+      <p style="color:#94a3b8;font-size:14px;line-height:1.65;font-style:italic;margin:0">"${step.bad.text}"</p>
+    </div>
+    <div style="background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);border-radius:12px;padding:14px;margin-bottom:16px">
+      <div style="color:#4ade80;font-size:12px;font-weight:700;margin-bottom:8px">${step.good.label}</div>
+      <p style="color:#cbd5e1;font-size:14px;line-height:1.65;font-style:italic;margin:0">"${step.good.text}"</p>
+    </div>
+    <button class="btn" style="background:${color};color:white" onclick="nextStep()">${nextLabel}</button>`;
+  } else if (step.type === "vocab") {
+    html = `<div class="step-label" style="color:${color}">${step.heading}</div>` +
+      step.pairs.map(p => `<div class="vocab-row"><span class="vocab-weak">${p.weak}</span><span class="vocab-arrow">→</span><span class="vocab-strong">${p.strong}</span></div>`).join("") +
+      `<button class="btn" style="background:${color};color:white;margin-top:8px" onclick="nextStep()">${nextLabel}</button>`;
+  } else if (step.type === "quiz") {
+    html = `<div class="step-label" style="color:${color}">Quick Check</div>
+    <p style="font-size:16px;font-weight:600;color:#f1f5f9;margin-bottom:20px;line-height:1.6">${step.question}</p>
+    <div id="quiz-options">` +
+      step.options.map((o,i) => `<button class="quiz-option" onclick="answerQuiz(${i})">${o}</button>`).join("") +
+    `</div><div id="quiz-explanation" style="display:none"></div>`;
+  }
+
+  document.getElementById("step-content").innerHTML = html;
+}
+
+function answerQuiz(selected) {
+  const step = currentLesson.steps[currentStep];
+  const isLast = currentStep === currentLesson.steps.length - 1;
+  const btns = document.querySelectorAll(".quiz-option");
+  btns.forEach((b, i) => {
+    b.onclick = null;
+    if (i === step.answer) b.className = "quiz-option correct";
+    else if (i === selected) b.className = "quiz-option wrong";
+  });
+  const exp = document.getElementById("quiz-explanation");
+  exp.style.display = "block";
+  exp.innerHTML = `<div class="explanation"><div class="explanation-label">💡 Explanation</div><p>${step.explanation}</p></div>
+  <button class="btn" style="background:${currentLesson.color};color:white" onclick="nextStep()">${isLast ? "Complete Lesson ✓" : "Next →"}</button>`;
+}
+
+function nextStep() {
+  const total = currentLesson.steps.length;
+  if (currentStep < total - 1) {
+    currentStep++;
+    showStep();
+    window.scrollTo(0,0);
+  } else {
+    if (!completed.includes(currentLesson.id)) completed.push(currentLesson.id);
+    const content = document.getElementById("step-content");
+    content.innerHTML = `<div class="complete-banner"><h2>🎉 Lesson Complete!</h2><p>Great work. Keep going with the next lesson.</p></div>
+    <button class="btn" style="background:${currentLesson.color};color:white" onclick="goHome()">Back to All Lessons →</button>`;
+    window.scrollTo(0,0);
+  }
+}
+
+updateHome();
+</script>
+</body>
+</html>
